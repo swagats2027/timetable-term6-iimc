@@ -2,6 +2,8 @@
 
 Open `index.html` in a modern browser to use the app. It is a static site with no build step or server dependency. Your selected courses are saved in the browser on that device.
 
+On phones, the planner panels stack vertically and the weekly timetable scrolls sideways to show all seven days.
+
 ## Publish at `<username>.github.io`
 
 1. On GitHub, create a repository named exactly `<your-GitHub-username>.github.io`. Leave “Add a README” unchecked; this folder already contains one.
