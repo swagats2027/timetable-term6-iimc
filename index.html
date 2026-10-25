@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f4f7" />
+    <title>Term VI · Course planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Subject planner">
+        <div class="sidebar-top">
+          <div class="sidebar-heading">
+            <div>
+              <p class="eyebrow">62nd batch · 2026–27</p>
+              <h1>Subjects</h1>
+            </div>
+            <span class="term-pill">VI</span>
+          </div>
+          <label class="search-box">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8"></circle><path d="m13.2 13.2 4 4"></path></svg>
+            <input id="search" type="search" placeholder="Search subjects or professors…" autocomplete="off" />
+            <kbd>/</kbd>
+          </label>
+          <div class="course-list-heading">
+            <span>Available subjects</span>
+            <span class="count-pill" id="available-count">29</span>
+          </div>
+          <div class="course-list" id="course-list" aria-label="Available subjects"></div>
+          <div class="sidebar-stats">
+            <div><span>Selected credits</span><strong id="credit-total">0</strong></div>
+            <div><span>Selected courses</span><strong id="selected-total">0</strong></div>
+            <div class="conflict-stat" id="conflict-stat" hidden><span>Timetable clashes</span><strong id="conflict-total">0</strong></div>
+          </div>
+          <button class="reset-button" id="reset-all" type="button">Reset all</button>
+          <div class="selected-heading">
+            <span>Your plan</span>
+            <span class="selected-caption" id="selected-caption">0 selected</span>
+          </div>
+          <div class="selected-list" id="selected-list"></div>
+          <p class="sidebar-footnote">Your plan is saved on this device.</p>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="term-selector"><span class="term-dot"></span>Term VI <span class="chevron">⌄</span></div>
+          <div class="schedule-version"><span class="status-dot"></span> Tentative schedule <span class="version-separator">·</span> AY 2026–27</div>
+          <div class="topbar-controls">
+            <label class="switch-label"><input id="show-all" type="checkbox" checked /><span class="switch"></span><span>Show all classes</span></label>
+            <label class="switch-label"><input id="full-names" type="checkbox" checked /><span class="switch"></span><span>Full subject names</span></label>
+            <button class="icon-button" id="print-plan" type="button" title="Print timetable" aria-label="Print timetable">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7V2.8h9V7M5.2 14H3.6a1.6 1.6 0 0 1-1.6-1.6V8.7a1.7 1.7 0 0 1 1.7-1.7h12.6A1.7 1.7 0 0 1 18 8.7v3.7a1.6 1.6 0 0 1-1.6 1.6h-1.6M5.2 11.8h9.6v5.4H5.2z"></path><path d="M15.1 9.4h.1"></path></svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="filters-card" aria-labelledby="filters-title">
+          <div class="filters-head">
+            <h2 id="filters-title">Filters</h2>
+            <span id="filter-summary">29 subjects available</span>
+          </div>
+          <div class="filter-groups">
+            <div class="filter-group">
+              <h3>Days</h3>
+              <div class="chip-row" id="day-filters"></div>
+            </div>
+            <div class="filter-group">
+              <h3>Time slots</h3>
+              <div class="chip-row" id="time-filters"></div>
+            </div>
+            <div class="filter-group">
+              <h3>Credits</h3>
+              <div class="chip-row" id="credit-filters"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="calendar-card" aria-label="Weekly timetable">
+          <div class="calendar-scroll" id="calendar-scroll">
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </div>
+          <div class="calendar-footer">
+            <div class="legend">
+              <span><i class="legend-dot available"></i>Available class</span>
+              <span><i class="legend-dot selected"></i>In your plan</span>
+              <span><i class="legend-dot conflict"></i>Clash</span>
+            </div>
+            <span class="schedule-note">Class locations aren’t included in the source schedule.</span>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
